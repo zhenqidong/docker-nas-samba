@@ -5,5 +5,14 @@ Based on Debian
 ## Run Container
 
 ```
-$ docker run -it --name nas -p 445:455 -p 137:137 -p 138:138 -p 139:139 -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --hostname=Servername -v $(pwd)/multiuser.conf:/conf/multiuser.conf:ro -v /path/to/:/home/test kartoffeltoby/docker-nas-samba:unstable
+$ docker run -it --name nas -p 445:445 -p 137:137 -p 138:138 -p 139:139 -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --hostname=Servername -v $(pwd)/multiuser.conf:/conf/multiuser.conf:ro -v /path/to/:/home/test kartoffeltoby/docker-nas-samba:unstable
 ```
+
+## Testing notes:
+    1. :ro may not work on centos, use Z option instead
+    2. aws blocks all the samba ports by default
+    3. smb port used by windows isn't configurable
+    4. use Z for mutiuser.conf binding, otherwise the file isn't readable inside docker
+    5. the smb.conf has missed 'guest account = xxx ' in general section
+    6. public = guest ok
+    
