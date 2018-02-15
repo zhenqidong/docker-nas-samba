@@ -7,6 +7,7 @@ RUN echo "deb http://ftp.de.debian.org/debian stretch main" > /etc/apt/sources.l
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install --fix-missing samba samba-common -y
+RUN apt-get install --fix-missing vim -y
 
 RUN rm -f /etc/samba/smb.conf
 
