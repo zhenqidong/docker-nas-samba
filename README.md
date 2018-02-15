@@ -16,4 +16,8 @@ $ docker run -it --name nas -p 445:445 -p 137:137 -p 138:138 -p 139:139 -v /etc/
     4. use Z for mutiuser.conf binding, otherwise the file isn't readable inside docker
     5. the smb.conf has missed 'guest account = xxx ' in general section
     6. public = guest ok
+    7. WARNING: Ignoring invalid value 'share' for parameter 'security' - share not in samba4 any more
+    8. map to guest = Bad Password _# this is the key to make public share works
     
+## commands:
+    1. smbclient //host/share
